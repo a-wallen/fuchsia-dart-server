@@ -1,0 +1,17 @@
+load(
+    "@rules_fuchsia//fuchsia:defs.bzl",
+    "fuchsia_component",
+    "fuchsia_component_manifest",
+    "fuchsia_package",
+)
+
+fuchsia_component(
+  name = "server",
+  manifest = "meta/server.cmx",
+)
+
+fuchsia_package(
+  name = "package",
+  package_name = "server",
+  deps = [ ":server" ]
+)
